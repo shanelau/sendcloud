@@ -9,14 +9,27 @@
   
 var should = require('should');
 var sendcloud = require('../../index');
-
+var fs = require('fs');
 
 describe('SendCloud', function(){
-
 
   beforeEach(function(done){
     sendcloud.init('bigertech_dev','xxxx','bigertech@qq.com','笔戈科技','bgdev_batch');
     done();
+  });
+
+  describe('#send()', function(){
+    it('should return success ', function(done){
+      var p = '<p>感谢您注册笔戈智能硬件系统,点击以下链接激活邮箱</p>';
+      var options = {
+        fromname: '刘兴测试',
+        //files: fs.createReadStream(__dirname+'Email.js')
+      }
+      sendcloud.send('liuxing@meizu.com','笔戈科技账号激活！',p,options).then(function(info){
+        console.log(info);
+        done();
+      });
+    });
   });
 
 
@@ -43,16 +56,5 @@ describe('SendCloud', function(){
       });
     });
   })
-  describe('#send()', function(){
-    it('should return success ', function(done){
-      var p = '<p>感谢您注册笔戈智能硬件系统,点击以下链接激活邮箱</p>';
-      var options = {
-        fromname: '刘兴测试'
-      }
-      sendcloud.send('liuxing@meizu.com','笔戈科技账号激活！',p,options).then(function(info){
-        console.log(info);
-        done();
-      });
-    });
-  });
+
 })
