@@ -78,15 +78,14 @@ HTTP请求的方式发送Email
 sendcloud.init('','','');
 
 var subject = '账号激活',
-          to =  ['liuxing@meizu.com'],
-          sub = {
-              name: ['狂飙蜗牛'],
-               url: ['<a href="http://www.bigertech.com">hello world</a>']
-            };
+    to =  ['liuxing@meizu.com'],
+    sub = {
+      name: ['狂飙蜗牛'],
+      url: ['<a href="http://www.bigertech.com">hello world</a>']
+    };
       sendcloud.sendByTemplate(to,subject,'email_bind',sub).then(function(info){
-        console.log(info);
-        done();
-      });
+    console.log(info);
+});
 ```
 
 
