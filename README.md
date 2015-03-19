@@ -52,7 +52,7 @@ HTTP请求的方式发送Email
 
 
 ###sendEmail(to,subject,data)
-发送 HTML格式的邮件
+SMTP 发送邮件
 
  * to 收件人邮箱
  * subject 邮件主题
