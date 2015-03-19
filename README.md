@@ -60,15 +60,15 @@ sendcloud.sendEmail('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').t
  data 格式说明,sub中的数据为模板中需要的参数
  {"to":数组, "sub":{key1:数组1, key2:数组2}, ....}，
 
- ```
-   var data = {
-        subject:'账号激活',
-        to: ['liuxing@meizu.com'],
-        sub:{
-          '%name%': ['狂飙蜗牛'],
-        }
-      };
- ```
+```
+var data = {
+    subject:'账号激活',
+    to: ['liuxing@meizu.com'],
+    sub:{
+      '%name%': ['狂飙蜗牛'],
+    }
+  };
+```
 
 
  在sendcloud中新建模板如下
