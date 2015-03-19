@@ -45,18 +45,19 @@ sendcloud.sendEmail('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').t
 ###sendEmail(email,subject,data)
 发送 HTML格式的邮件
 
- * @param email 收件人邮箱
- * @param subject 邮件主题
- * @param data  邮件正文
- * @returns {Promise}
+ * email 收件人邮箱
+ * subject 邮件主题
+ * data  邮件正文
+ * {Promise}
 
 ### sendByTemplate(name,data) 
 根据模板名称发送邮件
 
- * 必须是合法的json格式{"to":数组, "sub":{key1:数组1, key2:数组2}, ....}，
- * 如：{"to": ["to1@sendcloud.org", "to2@sendcloud.org"], "sub" : { "%name%" : ["约翰", "林肯"], "%money%" : ["1000", "200"]} }
- * @param name  模板名
- * @param data
+必须是合法的json格式{"to":数组, "sub":{key1:数组1, key2:数组2}, ....}，
+如：{"to": ["to1@sendcloud.org", "to2@sendcloud.org"], "sub" : { "%name%" : ["约翰", "林肯"], "%money%" : ["1000", "200"]} }
+
+* name  模板名
+* data
  
  
  data 格式说明,sub中的数据为模板中需要的参数
@@ -71,6 +72,8 @@ sendcloud.sendEmail('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').t
         }
       };
  ```
+
+
  在sendcloud中新建模板如下
  
  ```
