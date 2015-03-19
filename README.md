@@ -1,2 +1,89 @@
 # sendcloud
 NodeJS for sendcloud.sohu.com API 
+
+sendcloud 的邮件发送功能。 [http://sendcloud.sohu.com/doc.html#sendEmail](http://sendcloud.sohu.com/doc.html)
+
+
+## Usage
+
+
+
+```
+npm install sendcloud --save
+```
+
+Then 
+
+```
+var sendcloud = require('sendcloud');
+
+// init first
+sendcloud.init('apiUser','[secretKey]','bigertech@qq.com','笔戈科技','bgdev_batch');
+
+// send email
+sendcloud.sendEmail('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(function(info){
+	console.log(info);
+});
+
+
+
+```
+
+
+## API
+
+###init(apiUser,apiKey,from,name,apiUserBatch)
+初始化配置
+
+
+ * apiUser  apiUser 见sendcloud 的文档 
+ * apiKey  apiKey 
+ * from  发送方的邮件地址
+ * name  发送方姓名				   可选
+ * apiUserBatch  option 批量用户名  可选
+
+###sendEmail(email,subject,data)
+发送 HTML格式的邮件
+
+ * @param email 收件人邮箱
+ * @param subject 邮件主题
+ * @param data  邮件正文
+ * @returns {Promise}
+
+### sendByTemplate(name,data) 
+根据模板名称发送邮件
+
+ * 必须是合法的json格式{"to":数组, "sub":{key1:数组1, key2:数组2}, ....}，
+ * 如：{"to": ["to1@sendcloud.org", "to2@sendcloud.org"], "sub" : { "%name%" : ["约翰", "林肯"], "%money%" : ["1000", "200"]} }
+ * @param name  模板名
+ * @param data
+ 
+ 
+ data 格式说明,sub中的数据为模板中需要的参数
+ 
+ ```
+   var data = {
+        subject:'账号激活',
+        to: ['liuxing@meizu.com'],
+        sub:{
+          name: ['狂飙蜗牛'],
+          url: ['<a href="http://www.bigertech.com">hello world</a>']
+        }
+      };
+ ```
+ 在sendcloud中新建模板如下
+ 
+ ```
+ Hi name。
+ 点击以下按钮激活 url
+ 
+ ```
+
+
+
+- - - - -
+
+Any question [shanelau](http://weibo.com/kissliux)  
+or  
+shanelau1021@gmail.com
+
