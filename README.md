@@ -33,10 +33,8 @@ sendcloud.send('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(f
 ## API
 
 ###init(apiUser,apiKey,from,name,apiUserBatch)
-初始化配置
+初始化配置 apiUser  apiUser 见sendcloud 的文档 
 
-
- * apiUser  apiUser 见sendcloud 的文档 
  * apiKey  apiKey 
  * from  发送方的邮件地址
  * name  发送方姓名				   可选
@@ -44,11 +42,13 @@ sendcloud.send('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(f
 
 ###send(to,subject,html,options)
 
- * HTTP请求的方式发送Email
+HTTP请求的方式发送Email
+
  * 收件人地址. 多个地址使用';'分隔,
  * subject 标题. 不能为空
  * html  邮件的内容.
  * options 可选的参数 http://sendcloud.sohu.com/doc/email/send_email/
+ * return 成功：`{"message":"success"}`，失败：错误原因
 
 
 ###sendEmail(to,subject,data)
