@@ -1,7 +1,7 @@
 # sendcloud
 NodeJS for sendcloud.sohu.com API 
 
-sendcloud 的邮件发送功能。 [http://sendcloud.sohu.com/doc.html#sendEmail](http://sendcloud.sohu.com/doc.html)
+sendcloud 的邮件发送功能。 [http://sendcloud.sohu.com/doc/](http://sendcloud.sohu.com/doc/)
 
 
 ## Usage
@@ -21,7 +21,7 @@ var sendcloud = require('sendcloud');
 sendcloud.init('apiUser','[secretKey]','bigertech@qq.com','笔戈科技','bgdev_batch');
 
 // send email
-sendcloud.sendEmail('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(function(info){
+sendcloud.send('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(function(info){
 	console.log(info);
 });
 
@@ -42,32 +42,51 @@ sendcloud.sendEmail('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').t
  * name  发送方姓名				   可选
  * apiUserBatch  option 批量用户名  可选
 
-###sendEmail(email,subject,data)
+###send(to,subject,html,options)
+
+ * HTTP请求的方式发送Email
+ * 收件人地址. 多个地址使用';'分隔,
+ * subject 标题. 不能为空
+ * html  邮件的内容.
+ * options 可选的参数 http://sendcloud.sohu.com/doc/email/send_email/
+
+
+###sendEmail(to,subject,data)
 发送 HTML格式的邮件
 
- * email 收件人邮箱
+ * to 收件人邮箱
  * subject 邮件主题
  * data  邮件正文
  * {Promise}
 
-### sendByTemplate(name,data) 
+### sendByTemplate(to,subject,templateName,sub,options)
 根据模板名称发送邮件
 
-* name  模板名
-* data
- 
+ * to Array 发送方邮件列表
+ * subject 主题
+ * templateName 模板名称
+ * sub Object 需要替换的变量,如果没有sub ,请传递 {}
+ * options 可选参数 http://sendcloud.sohu.com/doc/email/send_email/#_2
+ * @returns {bluebird} 
  
  data 格式说明,sub中的数据为模板中需要的参数
  {"to":数组, "sub":{key1:数组1, key2:数组2}, ....}，
+ 
+####Example
 
 ```
-var data = {
-    subject:'账号激活',
-    to: ['liuxing@meizu.com'],
-    sub:{
-      '%name%': ['狂飙蜗牛'],
-    }
-  };
+sendcloud.init('','','');
+
+var subject = '账号激活',
+          to =  ['liuxing@meizu.com'],
+          sub = {
+              name: ['狂飙蜗牛'],
+               url: ['<a href="http://www.bigertech.com">hello world</a>']
+            };
+      sendcloud.sendByTemplate(to,subject,'email_bind',sub).then(function(info){
+        console.log(info);
+        done();
+      });
 ```
 
 
@@ -80,6 +99,12 @@ var data = {
  ```
 
 
+##Test  100%
+
+```
+mocha test/unit/
+
+```
 
 - - - - -
 

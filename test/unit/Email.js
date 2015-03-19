@@ -15,7 +15,7 @@ describe('SendCloud', function(){
 
 
   beforeEach(function(done){
-    sendcloud.init('bigertech_dev','************','bigertech@qq.com','笔戈科技','bgdev_batch');
+    sendcloud.init('bigertech_dev','xxxx','bigertech@qq.com','笔戈科技','bgdev_batch');
     done();
   });
 
@@ -31,18 +31,28 @@ describe('SendCloud', function(){
   describe('#sendTemplateEmail()', function(){
     it('should return success ', function(done){
 
-      var data = {
-        subject:'账号激活',
-        to: ['liuxing@meizu.com'],
-        sub:{
-          name: ['狂飙蜗牛'],
-          url: ['<a href="http://www.bigertech.com">hello world</a>']
-        }
-      };
-      sendcloud.sendByTemplate('email_bind',data).then(function(info){
+      var subject = '账号激活',
+          to =  ['liuxing@meizu.com'],
+          sub = {
+              name: ['狂飙蜗牛'],
+               url: ['<a href="http://www.bigertech.com">hello world</a>']
+            };
+      sendcloud.sendByTemplate(to,subject,'email_bind',sub).then(function(info){
         console.log(info);
         done();
       });
     });
   })
+  describe('#send()', function(){
+    it('should return success ', function(done){
+      var p = '<p>感谢您注册笔戈智能硬件系统,点击以下链接激活邮箱</p>';
+      var options = {
+        fromname: '刘兴测试'
+      }
+      sendcloud.send('liuxing@meizu.com','笔戈科技账号激活！',p,options).then(function(info){
+        console.log(info);
+        done();
+      });
+    });
+  });
 })

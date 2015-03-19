@@ -9,6 +9,7 @@
   
  module.exports = {
    api: {
-     send_template: 'https://sendcloud.sohu.com/webapi/mail.send_template.xml'
+     send: 'http://sendcloud.sohu.com/webapi/mail.send.json',
+     send_template: 'http://sendcloud.sohu.com/webapi/mail.send_template.json'
    }
  }
