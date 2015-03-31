@@ -102,26 +102,26 @@ var subject = '账号激活',
  * @param to    邮件接收者，
  * @param subject 主题
  * @param templateName  模板名
- * @param sub     参数
- * @param options   其他可选参数  sub = {
-              '%name%': ['狂飙蜗牛'],
-               '%url%': ['http://www.bigertech.com']
-            };
+ * @param sub     参数  sub = {
+                                    '%name%': ['狂飙蜗牛'],
+                                     '%url%': ['http://www.bigertech.com']
+                                  };
+ * @param options   其他可选参数
  * @returns {bluebird}
 
 ####Example
 
 ```
 var subject = '找回密码',
-          to =  'liuxing@meizu.com',
-          sub = {
-              '%name%': ['狂飙蜗牛'],
-               '%url%': ['http://www.bigertech.com']
-            };
-      sendcloud.templateToOne(to,subject,'reset-pw',sub).then(function(info){
-        console.log(info);
-        done();
-      });
+  to =  'liuxing@meizu.com',
+     sub = {
+         '%name%': ['狂飙蜗牛'],
+          '%url%': ['http://www.bigertech.com']
+       };
+   sendcloud.templateToOne(to,subject,'reset-pw',sub).then(function(info){
+   console.log(info);
+   done();
+  });
 ```
 
 
