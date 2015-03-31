@@ -88,7 +88,6 @@ var subject = '账号激活',
 });
 ```
 
-
  在sendcloud中新建模板如下
  
  ```
@@ -96,6 +95,34 @@ var subject = '账号激活',
  点击以下按钮激活
  
  ```
+
+### templateToOne
+
+ * 使用触发账号，发送邮件。 发给某一个用户
+ * @param to    邮件接收者，
+ * @param subject 主题
+ * @param templateName  模板名
+ * @param sub     参数
+ * @param options   其他可选参数  sub = {
+              '%name%': ['狂飙蜗牛'],
+               '%url%': ['http://www.bigertech.com']
+            };
+ * @returns {bluebird}
+
+####Example
+
+```
+var subject = '找回密码',
+          to =  'liuxing@meizu.com',
+          sub = {
+              '%name%': ['狂飙蜗牛'],
+               '%url%': ['http://www.bigertech.com']
+            };
+      sendcloud.templateToOne(to,subject,'reset-pw',sub).then(function(info){
+        console.log(info);
+        done();
+      });
+```
 
 
 ##Test  100%

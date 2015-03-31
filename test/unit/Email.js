@@ -9,12 +9,11 @@
   
 var should = require('should');
 var sendcloud = require('../../index');
-var fs = require('fs');
 
 describe('SendCloud', function(){
 
   beforeEach(function(done){
-    sendcloud.init('bigertech_dev','xxxx','bigertech@qq.com','笔戈科技','bgdev_batch');
+    sendcloud.init('bigertech_dev','xxx','bigertech@qq.com','笔戈科技','bgdev_batch');
     done();
   });
 
@@ -41,16 +40,16 @@ describe('SendCloud', function(){
       });
     });
   });
-  describe('#sendTemplateEmail()', function(){
+  describe.only('#sendTemplateEmail()', function(){
     it('should return success ', function(done){
 
-      var subject = '账号激活',
-          to =  ['liuxing@meizu.com'],
+      var subject = '找回密码',
+          to =  'liuxing@meizu.com',
           sub = {
-              name: ['狂飙蜗牛'],
-               url: ['<a href="http://www.bigertech.com">hello world</a>']
+              '%name%': ['狂飙蜗牛'],
+               '%url%': ['http://www.bigertech.com']
             };
-      sendcloud.sendByTemplate(to,subject,'email_bind',sub).then(function(info){
+      sendcloud.templateToOne(to,subject,'reset-pw',sub).then(function(info){
         console.log(info);
         done();
       });
