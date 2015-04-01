@@ -12,7 +12,7 @@ var mailList = require('../../lib/mailList');
 var sendcloud = require('../../index');
 
 
-describe('EmailList', function () {
+describe('listMember', function () {
 
 	beforeEach(function (done) {
 		var config = sendcloud.init('bigertech_dev', 'qS8D4vEr0ZOwbJL8', 'bigertech@qq.com', '笔戈科技', 'bgdev_batch');
@@ -20,41 +20,41 @@ describe('EmailList', function () {
 		done();
 	});
 
-	describe('#createEmailList()', function () {
-		it('test create method ', function (done) {
+	describe('#listMember()', function () {
+		it('test add method ', function (done) {
 
-			mailList.createEmailList('suli' +
-			'@maillist.sendcloud.org', 'slh').then(function (info) {
+			mailList.addListMember('sulihuang@maillist.sendcloud.org', ['1111@qq.com', '22222@qq.com'], {name: ['231', '2213']}).then(function (info) {
 				console.log(info);
 				done();
 			});
 		});
 	});
 
-	describe('#EmailList()', function () {
+	describe('#listMember()', function () {
 		it('test get method ', function (done) {
 
-			mailList.getEmailList().then(function (info) {
+			mailList.getListMember('sulihuang@maillist.sendcloud.org').then(function (info) {
 				console.log(info);
 				done();
 			});
 		});
 	});
 
-	describe.skip('#EmailList()', function () {
+	describe('#listMember()', function () {
 		it('test update method ', function (done) {
 
-			mailList.updateEmailList('suli@maillist.sendcloud.org', {toAddress: 'sulh@maillist.sendcloud.org'}).then(function (info) {
+			mailList.updateListMember('sulihuang@maillist.sendcloud.org', ['111@qq.com', '222@qq.com'], {name: ['aa', 'bb']}).then(function (info) {
 				console.log(info);
 				done();
 			});
 		});
 	});
 
-	describe.skip('#EmailList()', function () {
+
+	describe('#listMember()', function () {
 		it('test delete method ', function (done) {
 
-			mailList.deleteEmailList('slh@maillist.sendcloud.org').then(function (info) {
+			mailList.deleteListMember('sulihuang@maillist.sendcloud.org', ['111@qq.com']).then(function (info) {
 				console.log(info);
 				done();
 			});
