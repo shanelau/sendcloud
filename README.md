@@ -124,6 +124,16 @@ var subject = '找回密码',
   });
 ```
 
+## 邮件列表API
+demo
+
+```
+var mailList = sendcloud.mailList;
+mailList.getEmailList
+```
+
+### getEmailList
+
 
 ##Test  100%
 

@@ -8,24 +8,22 @@
  */
 
 var should = require('should');
-var mailList = require('../../lib/mailList');
 var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
 
 
 describe('EmailList', function () {
 
 	beforeEach(function (done) {
-		var config = sendcloud.init('bigertech_dev', 'qS8D4vEr0ZOwbJL8', 'bigertech@qq.com', '笔戈科技', 'bgdev_batch');
-		mailList.setConfig(config);
+		var config = sendcloud.init('bigertech_dev', 'xxx', 'bigertech@qq.com', '笔戈科技', 'bgdev_batch');
 		done();
 	});
 
-	describe('#createEmailList()', function () {
+	describe.skip('#createEmailList()', function () {
 		it('test create method ', function (done) {
 
-			mailList.createEmailList('suli' +
-			'@maillist.sendcloud.org', 'slh').then(function (info) {
-				console.log(info);
+			mailList.createEmailList('all@wan.bigertech.com', 'all_wan').then(function (info) {
+				(info.message === 'success').should.equal(true);
 				done();
 			});
 		});
@@ -51,10 +49,10 @@ describe('EmailList', function () {
 		});
 	});
 
-	describe.skip('#EmailList()', function () {
+	describe('#EmailList()', function () {
 		it('test delete method ', function (done) {
 
-			mailList.deleteEmailList('slh@maillist.sendcloud.org').then(function (info) {
+			mailList.deleteEmailList('sulihuang@maillist.sendcloud.org').then(function (info) {
 				console.log(info);
 				done();
 			});
