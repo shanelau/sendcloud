@@ -49,7 +49,7 @@ describe('EmailList', function () {
 		});
 	});
 
-	describe('#EmailList()', function () {
+	describe.skip('#EmailList()', function () {
 		it('test delete method ', function (done) {
 
 			mailList.deleteEmailList('sulihuang@maillist.sendcloud.org').then(function (info) {
