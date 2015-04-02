@@ -15,7 +15,7 @@ var mailList = sendcloud.mailList;
 describe('EmailList', function () {
 
 	beforeEach(function (done) {
-		var config = sendcloud.init('bigertech_dev', 'qS8D4vEr0ZOwbJL8', 'bigertech@qq.com', '笔戈科技', 'bgdev_batch');
+		var config = sendcloud.init('bigertech_dev', 'xxx', 'bigertech@qq.com', '笔戈科技', 'bgdev_batch');
 		done();
 	});
 
