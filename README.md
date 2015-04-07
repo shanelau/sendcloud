@@ -125,14 +125,166 @@ var subject = '找回密码',
 ```
 
 ## 邮件列表API
-demo
+### createEmailList
+创建邮件列表
+
+ * address  列表别称地址, 使用该别称地址进行调用
+ * name     列表名称
+ * options  其他可选参数 http://sendcloud.sohu.com/doc/email/list_do/#_2
+
+
 
 ```
+var sendcloud = require('../../index');
 var mailList = sendcloud.mailList;
-mailList.getEmailList
+
+mailList.createEmailList('handsome@sulihuang.com', 'handsome').then(function (info) {
+				console.log(info);
+			});
+
 ```
 
 ### getEmailList
+邮件列表查询
+
+ * options  可选参数 http://sendcloud.sohu.com/doc/email/list_do/#_1
+
+
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+
+mailList.getEmailList().then(function (info) {
+				console.log(info);	
+			});
+
+```
+
+### updataEmailList
+邮件列表更新
+
+ * address  列表别称地址, 使用该别称地址进行调用
+ * options  其他可选参数 http://sendcloud.sohu.com/doc/email/list_do/#_3
+ 	* toAddress 修改后的别称地址
+ 	* name 修改后的列表名称
+ 	* description 修改后的描述信息 
+  
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+
+mailList.updateEmailList('handsome@sulihuang.com',{toAddress:'sulh@maillist.sendcloud.org'}).then(function (info) {
+				console.log(info);
+			});
+
+```
+
+### deleteEmailList
+邮件列表删除
+
+* address  列表地址
+
+
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+
+mailList.deleteEmailList('sulihuang@maillist.sendcloud.org').then(function (info) {
+				console.log(info);
+			});
+
+```
+## 列表成员API
+### addListMember
+创建列表成员
+
+ * mail_list_addr  列表地址
+ * member_addr     需添加成员的地址, 多个地址使用分号;分开
+ * options  其他可选参数 http://sendcloud.sohu.com/doc/email/list_do/#_6
+ 	* name(string,地址所属人名称, 与member_addr一一对应, 多个名称用;分隔)
+ 	* vars(string,模板替换的变量, 与member_addr一一对应, 变量格式为{'%money%':1000}, 多个用;分隔)
+	* description(string,对列表的描述信息)
+	* upsert(string(false,true),是否允许更新, 当为true时, 如果该member_addr存在, 则更新; 为false时,
+
+
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+var email = 'sulihuang@maillist.sendcloud.org';
+
+mailList.addListMember(email, 'tiancai@qq.com', options).then(function (info) {
+				console.log(info);
+			});
+
+```
+
+### getListMember
+
+列表成员查询
+
+ * mail_list_addr  列表地址
+ * options  可选参数 http://sendcloud.sohu.com/doc/email/list_do/#_5
+ 	*  member_addr(string,需要查询信息的地址) 如果不包含member_addr参数, 返回查询地址列表的所有地址信息; 反之, 只返回该member_addr地址的信息
+    *  start（int,查询起始位置）
+    *  limit（int,查询个数）
+
+
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+var email = 'sulihuang@maillist.sendcloud.org';
+
+mailList.getListMember(email).then(function (info) {
+				console.log(info.members);
+			});	
+	
+
+```
+
+### updataListMember
+列表成员更新
+
+* mail_list_addr  列表地址
+* member_addr     需要更新成员的地址, 多个地址使用分号;分开
+* options  其他可选参数 http://sendcloud.sohu.com/doc/email/list_do/#_6
+ 	* name(string,地址所属人名称, 与member_addr一一对应, 多个名称用;分隔)
+ 	* vars(string,模板替换的变量, 与member_addr一一对应, 变量格式为{'%money%':1000}, 多个用;分隔)
+	
+
+  
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+
+mailList.updateListMember(email, '111@qq.com;222@qq.com').then(function (info) {
+				console.log(info);
+			});
+
+```
+
+### deleteListMember
+列表成员删除
+
+* mail_list_addr  列表地址
+* member_addr     删除成员的地址, 多个地址使用分号;分开
+
+
+```
+var sendcloud = require('../../index');
+var mailList = sendcloud.mailList;
+
+mailList.deleteListMember(email, '111@qq.com').then(function (info) {
+				console.log(info);
+		
+			});
+
+```
 
 
 ##Test  100%
