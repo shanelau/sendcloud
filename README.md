@@ -4,6 +4,30 @@ NodeJS for sendcloud.sohu.com API
 sendcloud 的邮件发送功能。 [http://sendcloud.sohu.com/doc/](http://sendcloud.sohu.com/doc/)
 
 
+- [sendcloud](#)
+	- [Usage](#)
+	- [API](#)
+		- [init(apiUser,apiKey,from,name,apiUserBatch)](#)
+		- [send(to,subject,html,options)](#)
+		- [sendEmail(to,subject,data)](#)
+		- [sendByTemplate(to,subject,templateName,sub,options)](#)
+			- [Example](#)
+		- [templateToOne](#)
+			- [Example](#)
+	- [邮件列表API](#)
+		- [createEmailList](#)
+		- [getEmailList](#)
+		- [updataEmailList](#)
+		- [deleteEmailList](#)
+	- [列表成员API](#)
+		- [addListMember](#)
+		- [getListMember](#)
+		- [updataListMember](#)
+		- [deleteListMember](#)
+	- [Test  100%](#)
+
+	
+
 ## Usage
 
 
