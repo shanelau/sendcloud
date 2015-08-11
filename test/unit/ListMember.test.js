@@ -8,7 +8,7 @@
  */
 
 var should = require('should');
-var email = 'sulh@maillist.sendcloud.org';
+var email = 'all123@wan.bigertech.com';
 var Sendcloud = require('../../lib/Sendcloud');
 var listMember;
 
@@ -19,7 +19,7 @@ describe('ListMember', function () {
 	});
 
 	describe('#listMember()', function () {
-		it('test add method ', function (done) {
+		it.skip('test add method ', function (done) {
 			var hehe = 'ldadd';
 			var dsda = 'dsada';
 
@@ -28,15 +28,19 @@ describe('ListMember', function () {
 				vars : {'%domain%' : hehe,'%hello%'  : dsda}
 			};
 			listMember.addListMember(email, '44444@qq.com', options).then(function (info) {
-				console.log(info);
+				(info.message === 'success').should.equal(true);
 				done();
+			}).catch(function(err){
+				console.error(err);
 			});
 		});
 
-		it.skip('test get method ', function (done) {
+		it('test get method ', function (done) {
 			listMember.getListMember(email).then(function (info) {
-				console.log(info.members);
+				(info.message === 'success').should.equal(true);
 				done();
+			}).catch(function(err){
+				console.error(err);
 			});
 		});
 	});
