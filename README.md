@@ -3,33 +3,10 @@ NodeJS for sendcloud.sohu.com API
 
 sendcloud 的邮件发送功能。 [http://sendcloud.sohu.com/doc/](http://sendcloud.sohu.com/doc/)
 
-
-- [sendcloud](#)
-	- [Usage](#)
-	- [API](#)
-		- [init(apiUser,apiKey,from,name,apiUserBatch)](#)
-		- [send(to,subject,html,options)](#)
-		- [sendEmail(to,subject,data)](#)
-		- [sendByTemplate(to,subject,templateName,sub,options)](#)
-			- [Example](#)
-		- [templateToOne](#)
-			- [Example](#)
-	- [邮件列表API](#)
-		- [createEmailList](#)
-		- [getEmailList](#)
-		- [updataEmailList](#)
-		- [deleteEmailList](#)
-	- [列表成员API](#)
-		- [addListMember](#)
-		- [getListMember](#)
-		- [updataListMember](#)
-		- [deleteListMember](#)
-	- [Test  100%](#)
-
 	
 
-## Usage
 
+## Usage
 
 
 ```
@@ -39,25 +16,33 @@ npm install sendcloud --save
 Then 
 
 ```
-var sendcloud = require('sendcloud');
+var Sendcloud = require('sendcloud');
 
 // init first
-sendcloud.init('apiUser','[secretKey]','bigertech@qq.com','笔戈科技','bgdev_batch');
+var sc = new Sendcloud('apiUser','[secretKey]','bigertech@qq.com','笔戈科技','bgdev_batch');
 
 // send email
-sendcloud.send('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(function(info){
+sc.send('liuxing@meizu.com','邮件测试','<h1>Hello world!<h1>').then(function(info){
 	console.log(info);
 });
 
 
-
 ```
+
+## API 须知
+1. 更多的参数传递. sendcloud 本身支持非常多的参数，包括 抄送(cc)、密送（bcc）等等，这些可选的参数都可以放在options 中传递给api 。
+2. 所有模板都需要官方审核，如果你发邮件时，返回的信息为 sample not match ，你应该先去检查样本是否通过审核了
+3. Sendcloud 本身为一个对象，该对象包含了基本发送邮件的函数，还包含以下的 对象
+	* EmailList	 地址列表操作，包含一些操作的api
+	* ListMember	列表成员操作
+	* 邮件标签、邮件模板等等api 还没有开发
+
 
 
 ## API
 
-###init(apiUser,apiKey,from,name,apiUserBatch)
-初始化配置 apiUser  apiUser 见sendcloud 的文档 
+### Sendcloud(apiUser,apiKey,from,name,apiUserBatch)
+构造函数初始化配置 apiUser  apiUser 见sendcloud 的文档 
 
  * apiKey  apiKey 
  * from  发送方的邮件地址
@@ -99,7 +84,6 @@ SMTP 发送邮件
 ####Example
 
 ```
-sendcloud.init('','','');
 
 var subject = '账号激活',
     to =  ['liuxing@meizu.com'],
@@ -159,8 +143,8 @@ var subject = '找回密码',
 
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
+var sendcloud = require('sendcloud');
+var mailList = new Sendcloud('').EmailList;  
 
 mailList.createEmailList('handsome@sulihuang.com', 'handsome').then(function (info) {
 				console.log(info);
@@ -176,12 +160,11 @@ mailList.createEmailList('handsome@sulihuang.com', 'handsome').then(function (in
 
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
 
-mailList.getEmailList().then(function (info) {
-				console.log(info);	
-			});
+mailList.getEmailList()
+	.then(function (info) {
+		console.log(info);	
+	});
 
 ```
 
@@ -196,12 +179,10 @@ mailList.getEmailList().then(function (info) {
   
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
-
-mailList.updateEmailList('handsome@sulihuang.com',{toAddress:'sulh@maillist.sendcloud.org'}).then(function (info) {
-				console.log(info);
-			});
+mailList.updateEmailList('handsome@sulihuang.com',{toAddress:'sulh@maillist.sendcloud.org'})
+	.then(function (info) {
+		console.log(info);
+	});
 
 ```
 
@@ -211,18 +192,24 @@ mailList.updateEmailList('handsome@sulihuang.com',{toAddress:'sulh@maillist.send
 * address  列表地址
 
 
-
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
 
-mailList.deleteEmailList('sulihuang@maillist.sendcloud.org').then(function (info) {
-				console.log(info);
-			});
+mailList.deleteEmailList('sulihuang@maillist.sendcloud.org')
+	.then(function (info) {
+		console.log(info);
+	});
 
 ```
 ## 列表成员API
+初始化sendcloud 对象后，获取到 ListMember 对象
+
+```
+var sendcloud = require('sendcloud');
+var listMember = new Sendcloud('').ListMember;  
+
+```
 ### addListMember
+
 创建列表成员
 
  * mail_list_addr  列表地址
@@ -236,13 +223,12 @@ mailList.deleteEmailList('sulihuang@maillist.sendcloud.org').then(function (info
 
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
 var email = 'sulihuang@maillist.sendcloud.org';
 
-mailList.addListMember(email, 'tiancai@qq.com', options).then(function (info) {
-				console.log(info);
-			});
+mailList.addListMember(email, 'tiancai@qq.com', options)
+	.then(function (info) {
+		console.log(info);
+	});
 
 ```
 
@@ -259,14 +245,13 @@ mailList.addListMember(email, 'tiancai@qq.com', options).then(function (info) {
 
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
+
 var email = 'sulihuang@maillist.sendcloud.org';
 
-mailList.getListMember(email).then(function (info) {
-				console.log(info.members);
-			});	
-	
+mailList.getListMember(email)
+	.then(function (info) {
+		console.log(info.members);	
+	});	
 
 ```
 
@@ -283,12 +268,10 @@ mailList.getListMember(email).then(function (info) {
   
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
-
-mailList.updateListMember(email, '111@qq.com;222@qq.com').then(function (info) {
-				console.log(info);
-			});
+mailList.updateListMember(email, '111@qq.com;222@qq.com')
+	.then(function (info) {
+		console.log(info);
+	});
 
 ```
 
@@ -300,13 +283,11 @@ mailList.updateListMember(email, '111@qq.com;222@qq.com').then(function (info) {
 
 
 ```
-var sendcloud = require('../../index');
-var mailList = sendcloud.mailList;
 
-mailList.deleteListMember(email, '111@qq.com').then(function (info) {
-				console.log(info);
-		
-			});
+mailList.deleteListMember(email, '111@qq.com')
+	.then(function (info) {
+		console.log(info);
+	});
 
 ```
 
