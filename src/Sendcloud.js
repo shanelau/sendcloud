@@ -138,6 +138,7 @@ class SendCloud {
       api_user: this.emailConfig.apiUser,
       api_key: this.emailConfig.apiKey,
       from: this.emailConfig.from,
+      fromname: this.emailConfig.name,
       template_invoke_name: templateName,
       subject: subject,
       substitution_vars: JSON.stringify({
