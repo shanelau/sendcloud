@@ -1,6 +1,6 @@
 {
   "name": "sendcloud",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Node for sendcloud. send email quickly and simply.",
   "main": "index.js",
   "directories": {
