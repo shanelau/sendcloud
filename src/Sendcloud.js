@@ -107,6 +107,7 @@ class SendCloud {
     var transporter = this.transporter;
     var mail = {
       from    : this.emailConfig.from,
+      fromname: this.emailConfig.name,
       to      : to || [],
       subject : subject,
       html    : data
@@ -180,6 +181,7 @@ class SendCloud {
       api_user: this.emailConfig.apiUserBatch,
       api_key: this.emailConfig.apiKey,
       from: this.emailConfig.from,
+      fromname: this.emailConfig.name,
       template_invoke_name: templateName,
       subject: subject,
       substitution_vars: JSON.stringify({
@@ -217,6 +219,7 @@ class SendCloud {
       api_user: this.emailConfig.apiUserBatch,
       api_key: this.emailConfig.apiKey,
       from: this.emailConfig.from,
+      fromname: this.emailConfig.name,
       template_invoke_name: templateName,
       subject: subject,
       use_maillist : 'true',
