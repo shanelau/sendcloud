@@ -1,9 +1,7 @@
 # sendcloud
 NodeJS for sendcloud.sohu.com API 
 
-sendcloud 的邮件发送功能。 [http://sendcloud.sohu.com/doc/](http://sendcloud.sohu.com/doc/)
-
-	
+sendcloud 的邮件发送功能。 [https://www.sendcloud.net/doc/email_v2/](https://www.sendcloud.net/doc/email_v2/)
 
 
 ## Usage
@@ -298,10 +296,4 @@ mailList.deleteListMember(email, '111@qq.com')
 mocha test/unit/
 
 ```
-
-- - - - -
-
-Any question [shanelau](http://weibo.com/kissliux)  
-or  
-shanelau1021@gmail.com
 
