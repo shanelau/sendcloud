@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-addressparser@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.npmmirror.com/addressparser/-/addressparser-0.3.2.tgz#59873f35e8fcf6c7361c10239261d76e15348bb2"
-  integrity sha512-fDlslCJpojuY1cnb7tY7COAriA7cdSzDiWyrWNdFn7Cjd+jrEgZavqkOgD/wg+eH765YPnQjqlS88OL/Q0Qtkg==
-
 ajv@^6.12.3:
   version "6.12.6"
   resolved "https://registry.npmmirror.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
@@ -56,26 +51,10 @@ bluebird@^2.9.14:
   resolved "https://registry.npmmirror.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
   integrity sha512-UfFSr22dmHPQqPP9XWHRhq+gWnHCYguQGkXQlbyPtW5qTnhFWA8/iXg765tH0cAjy7l/zPJ1aBTO0g5XgA7kvQ==
 
-buildmail@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmmirror.com/buildmail/-/buildmail-2.0.0.tgz#f0b7b0a59e9a4a1b5066bbfa051d248f3832eece"
-  integrity sha512-nzs+TRLUuC+4RUuEdUwjcu3EKXhbO2mTd20xZngRELIeGOlMWZjanEUxdOkVGx4TRN9CWzxqGrrxBYQUrBhCvQ==
-  dependencies:
-    addressparser "^0.3.2"
-    libbase64 "^0.1.0"
-    libmime "^1.2.0"
-    libqp "^1.1.0"
-    needle "^0.10.0"
-
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.npmmirror.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==
-
-clone@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.npmmirror.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
-  integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.8"
@@ -95,13 +74,6 @@ dashdash@^1.12.0:
   integrity sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g==
   dependencies:
     assert-plus "^1.0.0"
-
-debug@^2.1.2:
-  version "2.6.9"
-  resolved "https://registry.npmmirror.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
-  integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
-  dependencies:
-    ms "2.0.0"
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -184,13 +156,6 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-iconv-lite@^0.4.13, iconv-lite@^0.4.4:
-  version "0.4.24"
-  resolved "https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
-  integrity sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
-  dependencies:
-    safer-buffer ">= 2.1.2 < 3"
-
 is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
@@ -231,37 +196,10 @@ jsprim@^1.2.2:
     json-schema "0.4.0"
     verror "1.10.0"
 
-libbase64@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmmirror.com/libbase64/-/libbase64-0.1.0.tgz#62351a839563ac5ff5bd26f12f60e9830bb751e6"
-  integrity sha512-B91jifmFw1DKEqEWstSpg1PbtUbBzR4yQAPT86kCQXBtud1AJVA+Z6RSklSrqmKe4q2eiEufgnhqJKPgozzfIQ==
-
-libmime@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmmirror.com/libmime/-/libmime-1.2.0.tgz#8d84b4f3b225b3704410236ef494906436ba742b"
-  integrity sha512-T1b/a+85vR5uJOzvQG2xZlGsWdELj02jijj/ooBcIwJUF11yiE6n2T3EI9n0B5kJX1GhI9BTTb13g/bhnhxDnw==
-  dependencies:
-    iconv-lite "^0.4.13"
-    libbase64 "^0.1.0"
-    libqp "^1.1.0"
-
-libqp@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmmirror.com/libqp/-/libqp-1.1.0.tgz#f5e6e06ad74b794fb5b5b66988bf728ef1dedbe8"
-  integrity sha512-4Rgfa0hZpG++t1Vi2IiqXG9Ad1ig4QTmtuZF946QJP4bPqOYC78ixUXgz5TW/wE7lNaNKlplSYTxQ+fR2KZ0EA==
-
 lodash@>=4.17.19:
   version "4.17.21"
   resolved "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
-
-mailcomposer@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmmirror.com/mailcomposer/-/mailcomposer-2.1.0.tgz#a6531822899614fee899c92226d81e2b9cbb183d"
-  integrity sha512-vwqmIfiM3wiWAplTMfLoPzVvI2+Z+BL9pJQ2DXynIVYRPig5ulGsm+3ytMR88pP7Q2ReMj3wCYaq8m5xgfHzPg==
-  dependencies:
-    buildmail "^2.0.0"
-    libmime "^1.2.0"
 
 mime-db@1.51.0:
   version "1.51.0"
@@ -275,63 +213,15 @@ mime-types@^2.1.12, mime-types@~2.1.19:
   dependencies:
     mime-db "1.51.0"
 
-ms@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmmirror.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
-  integrity sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==
-
-needle@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.npmmirror.com/needle/-/needle-0.10.0.tgz#16a24d63f2a61152eb74cce1d12af85c507577d4"
-  integrity sha512-83oJxMoVmAew7kZ51Z4jeWndgXY7/yeSMUh4H9ayEYkfRbu7IGPW45Ft20aXbicU6z7mZU2V41MZHzysdBLoFQ==
-  dependencies:
-    debug "^2.1.2"
-    iconv-lite "^0.4.4"
-
-needle@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.npmmirror.com/needle/-/needle-0.11.0.tgz#02a71b008eaf7d55ae89fb9fd7685b7b88d7bc29"
-  integrity sha512-76paDodxGl3b+rcg8fYv7fkRLJp0kHprOL+HPtfDkT4QKJALSFJKWrJp7Qw83JVtPThH9Vy7iF4KR4Eq1fVYWA==
-  dependencies:
-    debug "^2.1.2"
-    iconv-lite "^0.4.4"
-
-nodemailer-direct-transport@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmmirror.com/nodemailer-direct-transport/-/nodemailer-direct-transport-1.1.0.tgz#a2f78708ee6f16ea0573fc82949d138ff172f624"
-  integrity sha512-cZ1EfBCkBAeR2+a/uFZ6IXh3YxtUPvBxebZB4zjE/J9LYPGqOPxkhvQMB/L6RA1lrcgyBS/Y1nF7vE69AqE+/Q==
-  dependencies:
-    smtp-connection "^1.3.1"
-
 nodemailer-sendcloud-transport@^0.0.2:
   version "0.0.2"
   resolved "https://registry.npmmirror.com/nodemailer-sendcloud-transport/-/nodemailer-sendcloud-transport-0.0.2.tgz#17f73b8ce3293c73cfcc1e8df3a22e3491127f8e"
   integrity sha512-uH1XWc8573cXN2YR1GnMAKROZIEwi2F6ZizBNkLczENNe9rjA9FD0qIDCaTZDrhZMJZESvyrQM9vBGRUtNcaGQ==
 
-nodemailer-smtp-transport@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmmirror.com/nodemailer-smtp-transport/-/nodemailer-smtp-transport-1.1.0.tgz#e6c37f31885ab3080e7ded3cf528c4ad7e691398"
-  integrity sha512-mFYe1i3c7buIOCs6m8VydDcyk+NW9LuAoyYeGxIqlzfWuX7PMHHIh2PTE90Wvx9+rdgTutPvrKaXMBABNf/m/Q==
-  dependencies:
-    clone "^1.0.2"
-    nodemailer-wellknown "^0.1.7"
-    smtp-connection "^1.3.7"
-
-nodemailer-wellknown@^0.1.7:
-  version "0.1.10"
-  resolved "https://registry.npmmirror.com/nodemailer-wellknown/-/nodemailer-wellknown-0.1.10.tgz#586db8101db30cb4438eb546737a41aad0cf13d5"
-  integrity sha512-/VV4mjAEjfm2fn0loUvrpjvugw5rgurNjPO4WU24CuVSoeumsyLOTgaEWG8WoGdPxh1biOAp5JxDoy1hlA2zsw==
-
-nodemailer@^1.3.2:
-  version "1.11.0"
-  resolved "https://registry.npmmirror.com/nodemailer/-/nodemailer-1.11.0.tgz#4e69cb39b03015b1d1ef0c78a815412b9e976f79"
-  integrity sha512-CA+mq08eL85Gg5S/Z4VdkS9f0jZUbiHr4XgUlifo7KGRem16tJuzwHOygW9CxfDzT48WgV8ffbNNJWX0BiT3Ag==
-  dependencies:
-    libmime "^1.2.0"
-    mailcomposer "^2.1.0"
-    needle "^0.11.0"
-    nodemailer-direct-transport "^1.1.0"
-    nodemailer-smtp-transport "^1.1.0"
+nodemailer@^6.6.1:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.6.1.tgz#2a05fbf205b897d71bf43884167b5d4d3bd01b99"
+  integrity sha512-1xzFN3gqv+/qJ6YRyxBxfTYstLNt0FCtZaFRvf4Sg9wxNGWbwFmGXVpfSi6ThGK6aRxAo+KjHtYSW8NvCsNSAg==
 
 oauth-sign@~0.9.0:
   version "0.9.0"
@@ -389,7 +279,7 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.2:
   resolved "https://registry.npmmirror.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
-"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.npmmirror.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
@@ -421,11 +311,6 @@ should@^5.2.0:
     should-equal "0.3.1"
     should-format "0.0.7"
     should-type "0.0.4"
-
-smtp-connection@^1.3.1, smtp-connection@^1.3.7:
-  version "1.3.8"
-  resolved "https://registry.npmmirror.com/smtp-connection/-/smtp-connection-1.3.8.tgz#55832c2160cfb3086e1dcd87fd1c19fa61b7f536"
-  integrity sha512-IEO4VJ8EJ7kmKMfCEGw/pQ0zzRKoB7J8GP/DElR9GU18ZMDDYlAaXGs6kwwjq8VfHMahebhqYZR83hFD/qqqCQ==
 
 sshpk@^1.7.0:
   version "1.17.0"
